@@ -248,7 +248,7 @@ public class Scope
         int i;
         if (pixels == null || dpixels == null)
             return;
-        int col =  0xFFFFFF;
+        int col =  0xEEEEEE;
         for (i = 0; i != pixels.length; i++)
             pixels[i] = col;
         for (i = 0; i != rect.width; i++)
@@ -261,7 +261,7 @@ public class Scope
             int q = (int) (255 * dpixels[i]);
             if (q > 0)
                 //color of trail
-                pixels[i] = 0xAAAAAA ;
+                pixels[i] = 0x000000;
             dpixels[i] *= .978;
         }
         g.drawImage(image, rect.x, rect.y, null);
@@ -293,7 +293,7 @@ public class Scope
         if (pixels == null)
             return;
         int i;
-        int col =0xFFFFFF;
+        int col =0xEEEEEE;
         for (i = 0; i != pixels.length; i++)
             pixels[i] = col;
         int x = 0;

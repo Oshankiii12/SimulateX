@@ -87,7 +87,31 @@ public class MemristorElm extends CircuitElm
             drawThickLine(g, ps1, ps2);
             ox = nx;
         }
-
+     // Draw data bit (1 if mostly doped, 0 if mostly undoped)
+        double ratio = dopeWidth / totalWidth;
+        String bit = ratio > 0.5 ? "1" : "0";  // Threshold at 50% doped
+        
+        // Calculate center position
+        Point center = interpPoint(lead1, lead2, 0.5);
+        
+        // Set text color (white normally, black when highlighted)
+        boolean highlighted = needsHighlight();
+        Color textColor = highlighted ? Color.BLUE : Color.BLACK;
+        g.setColor(textColor);
+        
+        // Configure font
+        Font oldFont = g.getFont();
+        g.setFont(new Font("SansSerif", Font.BOLD, 12));
+        FontMetrics fm = g.getFontMetrics();
+        
+        // Center the text
+        int textWidth = fm.stringWidth(bit);
+        int textHeight = fm.getAscent();
+        int x = center.x - textWidth/2;
+        int y = center.y - textHeight/2 + fm.getAscent()-15;
+        
+        g.drawString(bit, x, y);
+        g.setFont(oldFont);  
         doDots(g);
         drawPosts(g);
     }

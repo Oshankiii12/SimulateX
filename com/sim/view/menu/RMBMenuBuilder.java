@@ -28,6 +28,7 @@ public class RMBMenuBuilder
         popupMenu.add(passMenu);
         passMenu.add(getClassCheckItem(SwitchElm.class));
         passMenu.add(getClassCheckItem(MemristorElm.class));
+        passMenu.add(getClassCheckItem(MRAMElm.class));
 
         Menu inputMenu = new Menu("Inputs/Outputs");
         popupMenu.add(inputMenu);
@@ -39,8 +40,8 @@ public class RMBMenuBuilder
         Menu activeMenu = new Menu("Active Components");
         popupMenu.add(activeMenu);
         activeMenu.add(getClassCheckItem(DiodeElm.class));
-        activeMenu.add(getClassCheckItem(NMosfetElm.class));
-        activeMenu.add(getClassCheckItem(PMosfetElm.class));
+//        activeMenu.add(getClassCheckItem(NMosfetElm.class));
+//        activeMenu.add(getClassCheckItem(PMosfetElm.class));
 
         Menu otherMenu = new Menu("Other");
         otherMenu.add(getCheckItem("Drag All (Alt-drag)", "DragAll"));
